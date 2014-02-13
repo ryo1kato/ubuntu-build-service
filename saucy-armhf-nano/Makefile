@@ -17,7 +17,7 @@ MD5SUMSFILE=$(IMAGEPREFIX).md5sums.txt
 SHA1SUMSFILE=$(IMAGEPREFIX).sha1sums.txt
 
 all:
-	set -e; sudo lb build 2>&1 | tee $(LOGFILE)
+	script -e -c 'sudo lb build' $(LOGFILE)
 	if [ -f binary-tar.tar.gz ]; then \
 		tar -jcf $(CONFIGFILE) auto/ config/ configure; \
 		sudo mv binary.contents $(LISTFILE); \
